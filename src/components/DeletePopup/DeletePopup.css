@@ -1,0 +1,16 @@
+.delete-popup{
+    position: fixed;
+    top: 50%;
+    left: 35%;
+    transform: translateY(-50px);
+    z-index: 1;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px #eee;
+    width: 35%;
+}
+@media (max-width:776px) {
+    .delete-popup{
+        width: 50%;
+    }
+}
