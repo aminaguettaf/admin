@@ -25,7 +25,7 @@ function App() {
     <ToastContainer />
     {!token ?
     <Login />:
-    <BrowserRouter basename='/admin-panel'>
+    <BrowserRouter>
       <Navbar />
       <div className='d-flex' style={{marginTop: '80px'}}>
         <Sidebar />
