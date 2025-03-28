@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import './AddProducts.css';
 import Title from '../../components/Title/Title';
-import { categories, colors, sizes } from '../../assets/assets';
+import { colors, sizes } from '../../assets/assets';
 import axios from 'axios'
 import {toast} from 'react-toastify';
 import { useContext } from 'react';
@@ -10,7 +10,7 @@ import { AdminContext } from '../../context/AdminContext';
 
 
 const AddProduct = ({state}) => {  
-  const {url, productsList} = useContext(AdminContext);  
+  const {url, productsList, categories, token} = useContext(AdminContext);  
   const navigate= useNavigate();
   const params = useParams();
   const storedProduct = JSON.parse(localStorage.getItem('updateProduct'));
@@ -113,7 +113,11 @@ const AddProduct = ({state}) => {
         }
         // ajouter un produit
         if(state === 'add'){
-            const response = await axios.post(`${url}/products`, formData)
+            const response = await axios.post(`${url}/products`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
             if(response.data.success){
                 toast.success(response.data.message);
                 setData({
@@ -129,7 +133,7 @@ const AddProduct = ({state}) => {
                 navigate('/products-list');
             }
             else{
-                toast.error(response?.data?.message);
+                toast.error(response.data.message);
             }
         }
         // mettre a jour un produit
@@ -149,7 +153,7 @@ const AddProduct = ({state}) => {
   }
   
   return (
-    <div className='add-product p-4'>
+    <div className='add-product page-container p-4'>
       <Title  title={`${state === 'add' ? 'Add Product' : 'Update Product'}`} />
       <form onSubmit={onSubmitHandler} className='d-flex gap-5'>
         <div className='w-50'>
@@ -176,10 +180,10 @@ const AddProduct = ({state}) => {
             <div className='input-container d-flex gap-3'>
                 <div className='w-50'>
                     <p className='label mb-2 fw-medium'>Category</p>
-                    <select name='category' value={data.category} onChange={onChangeHandler} className='w-100 px-2 py-1 rounded border'>
-                        <option>Select a category</option>
+                    <select name='category' value={data.category} onChange={onChangeHandler} className='w-100 px-2 py-1 rounded border' required>
+                        <option value='' disabled selected>Select a category</option>
                         {categories.map((cat)=>(
-                            <option key={cat.value} value={cat.value}>{cat.label}</option>
+                            <option key={cat.name} value={cat.name}>{cat.name}</option>
                         ))}
                     </select>
                 </div>

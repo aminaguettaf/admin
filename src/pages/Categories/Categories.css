@@ -1,0 +1,24 @@
+.categories .btn:hover{
+    background-color: var(--red-color);
+}
+.categories .body .img{
+    width: 100px;
+    height: 100px;
+    margin-right: 140px;
+} 
+.categories .body .img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.categories .body{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px solid var(--red-color);
+}
+@media (max-width:1030px) {
+    .categories .hide{
+        display: none;
+    }    
+}

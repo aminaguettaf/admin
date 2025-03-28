@@ -1,0 +1,11 @@
+button.sumbit{
+    background-color: var(--blue-color);
+    height: fit-content;
+    color: #fff;
+}
+@media (max-width:992px) {
+    .add-category input,
+    .add-category .pic{
+        width: 100% !important;
+    }
+}

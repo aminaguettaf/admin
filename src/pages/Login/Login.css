@@ -1,0 +1,29 @@
+.login{
+    border-radius: 10px;
+    box-shadow: 0 0 10px #eee;
+    width: 400px;
+    margin: 100px auto;
+    border: 1px solid #eee;
+    padding: 30px 20px;
+    background-color: #fff;
+}
+.login p{
+    font-size: 14px;
+}
+.login h3{
+    font-size: 24px;
+    color: var(--blue-color);
+}
+.login input, .login button{
+    outline: none;
+}
+.login input{
+    border: 1px solid #eee;
+}
+.login button{
+    color: #fff;
+    background-color: var(--blue-color);
+    border: none;
+}
+
+

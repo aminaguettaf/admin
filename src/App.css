@@ -2,6 +2,7 @@
   --blue-color: #0A192F;
   --red-color: #800020;
   --red-transparent-color: #80002038;
+  --blue-transparent-color: #0a192f14;
   --grey-color: #D3D3D3;
   --text-color: #333333
 }
@@ -27,4 +28,82 @@ a{
 p{
   margin: 0;
   padding: 0;
+}
+.page-container{
+  margin-left: 20%;
+  flex-grow: 1;
+  overflow: hidden;
+}
+form .pic img{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+form .pic .fa-xmark{
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+}
+form .label{
+  font-size: 14px;
+  color: #666;
+}
+form input,
+form textarea,
+form button{
+  outline: none;   
+}
+button:hover{
+  background-color: var(--red-color) !important;
+  color: white !important;
+}
+.actions a{
+  color: #666;
+}
+.actions a p{
+  background-color: var(--blue-color);
+  font-size: 12px;
+  color: white;
+  width: 120px;
+  text-align: center;
+  z-index: 1;
+}
+.actions a:first-child > p, 
+.actions a:last-child > p{
+  display: none;
+}
+.actions a:first-child:hover > p,
+.actions a:last-child:hover > p{
+  display: block;
+}
+button.add{
+  display: block;
+  margin-left: auto;
+  background-color: var(--blue-color);
+  color: #fff;
+}
+.search{
+  outline: none;
+  border: 1px solid var(--blue-color);
+}
+.search::placeholder{
+  font-size: 14px;
+}
+.search:focus{
+  border-color: var(--red-color);
+}
+@media (max-width:992px) {
+  .page-container{
+    margin-left: 10%;
+  }
+}
+@media (max-width:576px) {
+  .page-container{
+    margin-left: 15%;
+  }
 }

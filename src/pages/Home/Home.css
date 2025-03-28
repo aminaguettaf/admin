@@ -1,0 +1,35 @@
+.home{
+    background-color: var(--blue-transparent-color);
+}
+.home .box{
+    background-color: #fff;
+}
+.home .title{
+    font-weight: bold;
+    color: var(--blue-color);
+    font-size: 20px;
+}
+.home .box i{
+    font-size: 40px;
+    color: #eee;
+}
+.home .box a{
+    display: block;
+    padding-top: 10px;
+    color: #333;
+    border-top: 1px solid #eee;
+    font-size: 13px;
+}
+.home .box span{
+    font-size: 40px;
+    color: var(--red-color);
+}
+.home .chart{
+    padding: 25px;
+    background-color: #fff;
+}
+@media (max-width:1030px) {
+    .home .chart{
+        width: 100% !important;
+    }
+}

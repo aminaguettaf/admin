@@ -1,0 +1,11 @@
+.users .body{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px solid var(--red-color);
+}
+@media (max-width:1030px) {
+    .users .hide{
+        display: none;
+    }    
+}

@@ -1,0 +1,14 @@
+.order .user-infos{
+    border-bottom: 1px solid var(--red-color);
+}
+@media (max-width:776px) {
+    .order .user-infos{
+        flex-direction: column;
+    }
+    .order .products-infos .header{
+        display: none;
+    }
+    .order .products-infos p{
+        font-size: 14px;
+    }
+}
