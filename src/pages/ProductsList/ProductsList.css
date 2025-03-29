@@ -3,6 +3,7 @@
     font-size: 14px;
     font-weight: medium;
 }
+
 .product-list .body{
     text-transform: capitalize;
     font-size: 14px;
@@ -28,6 +29,11 @@
 }
 @media (max-width:776px) {
     .product-list .body .hide{
+        display: none;
+    }
+}
+@media (max-width:556px) {
+    .product-list .btn{
         display: none;
     }
 }

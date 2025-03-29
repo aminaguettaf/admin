@@ -4,7 +4,7 @@ import {toast} from 'react-toastify';
 import axios from 'axios';
 
 const AdminContextProvider = (props)=>{
-    const url = "https://zesty-freedom.up.railway.app/api";
+    const url = "http://127.0.0.1:8000/api";
     const[token, setToken] = useState('');
     const[users, setUsers] = useState([]);
     const[productsList, setProductsList] = useState([]);
@@ -75,7 +75,6 @@ const AdminContextProvider = (props)=>{
         if(response.data.success){
           setUsers(Object.values(response.data.admins|| {}));
           setLoading(false);
-          console.log(response.data.admins);
         }
         else{
           toast.error(response.data.message);

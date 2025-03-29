@@ -65,7 +65,7 @@ const Home = () => {
         <div className='box flex-grow-1 rounded px-4 py-2'>
           <p className='title mb-4'>Total Orders</p>
           <div className='d-flex align-items-center justify-content-between mb-4'>
-            <i class="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-cart-shopping"></i>
             <span>{ordersList.length}</span>
           </div>
           <Link to='/orders'>View more...</Link>
@@ -73,18 +73,18 @@ const Home = () => {
         <div className='box flex-grow-1 rounded px-4 py-2'>
           <p className='title mb-4'>Total Products</p>
           <div className='d-flex align-items-center justify-content-between mb-4'>
-            <i class="fas fa-store"></i>
+            <i className="fas fa-store"></i>
             <span>{productsList.length}</span>
           </div>
-          <Link to='/orders'>View more...</Link>
+          <Link to='/products-list'>View more...</Link>
         </div>
         <div className='box flex-grow-1 rounded px-4 py-2'>
           <p className='title mb-4'>Total Users</p>
           <div className='d-flex align-items-center justify-content-between mb-4'>
-            <i class="fa-solid fa-users"></i>
+            <i className="fa-solid fa-users"></i>
             <span>{users.length}</span>
           </div>
-          <Link to='/orders'>View more...</Link>
+          <Link to='/users-list'>View more...</Link>
         </div>
       </div>
       <div className='d-flex flex-wrap  gap-4 mt-4 my-2'>

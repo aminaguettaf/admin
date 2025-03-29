@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import './AddCategory.css';
 import Title from '../../components/Title/Title';
 import {toast} from 'react-toastify';
@@ -16,13 +16,7 @@ const AddCategory = ({state}) => {
   const [image, setImage] = useState(category?.image ||null);
   
   useEffect(() => {
-    if (state === 'update' && category) {
-      localStorage.setItem(`category-${params.id}`, JSON.stringify(category));
-    }
-  }, [category, params.id, state]);
-
-  useEffect(() => {
-    if (state === 'update') {
+    if (state === 'update' && params.id) {
       localStorage.setItem(`category-${params.id}`, JSON.stringify({ name, image }));
     }
   }, [name, image, params.id, state]);
@@ -54,7 +48,6 @@ const AddCategory = ({state}) => {
         if(response.data.success){
           toast.success(response.data.message);
           navigate('/categories');
-          setImage('');
           setImage(null);
         }
         else{
@@ -100,7 +93,7 @@ const AddCategory = ({state}) => {
           </div>
         </div>
         <div className='mt-4 d-flex gap-2'>
-          <button className='btn border' onClick={()=>navigate('/categories')}>Back to categories list</button>
+          <Link to='/categories' className='btn border'>Back to categories list</Link>
           <button type='submit' className='btn sumbit'>{state === 'add' ? 'Add Category' : 'Update Category'}</button>
         </div>
       </form>

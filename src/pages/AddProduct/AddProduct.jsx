@@ -13,7 +13,7 @@ const AddProduct = ({state}) => {
   const {url, productsList, categories, token} = useContext(AdminContext);  
   const navigate= useNavigate();
   const params = useParams();
-  const storedProduct = JSON.parse(localStorage.getItem('updateProduct'));
+  const storedProduct = JSON.parse(localStorage.getItem(`product-${params.id}`));
   // rechercher dans productList avec params.id
   const product = productsList.find(p=>p.id === params.id)|| storedProduct;
 
@@ -29,28 +29,28 @@ const AddProduct = ({state}) => {
   const [image, setImage] = useState(product?.image || false);
   const[available, setAvailable] = useState(product?.available || false);
 
-  //si on ajoute un produit les valeurs sont réinitilisées sinon les valeurs existante du produit son chargées   
+  useEffect(() => {
+    if (state === 'update' && params.id) {
+        localStorage.setItem(`product-${params.id}`,JSON.stringify({...data, color, size, available, image}));
+    }
+    }, [data, color, size, available, image, params.id, state]);
+  useEffect(() => {
+    return () => {
+      if (state === 'add' && params.id) {
+        localStorage.removeItem(`product-${params.id}`);
+      }
+    };
+   }, [state, params.id]);
   useEffect(() => {
     if (state === 'add') {
-        localStorage.removeItem('updateProduct');
-        setData({ name: '', price: '', category: '', description: '' });
-        setColor([]);
-        setSize([]);
-        setImage(false);
-        setAvailable(false);
-    } else if (state === 'update' && product) {
-        setData({
-            name: product.name || '',
-            price: product.price || '',
-            category: product.category || '',
-            description: product.description || ''
-        });
-        setColor(product.color || []);
-        setSize(product.size || []);
-        setImage(product.image || false);
-        setAvailable(product.available || false);
+      setData({ name: '', price: '', category: '', description: '' });
+      setColor([]);
+      setSize([]);
+      setImage(false);
+      setAvailable(false);
     }
-}, [state, product]);
+  }, [state]);
+  
 
   //si la couleur est déja selectionée on la supprime sinon on l'ajoute   
   const handleColor = (e)=>{
